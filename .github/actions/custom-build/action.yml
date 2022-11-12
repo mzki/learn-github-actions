@@ -5,10 +5,14 @@ inputs:
     description: "output binary path"
     required: true
     default: "main"
+  workspace:
+    description: "workspace root path"
+    required: true
+    default: "../../../"
 runs:
   using: 'docker'
-  image: ${{ GITHUB_WORKSPACE }}/dockerfiles/Dockerfile
-  entrypoint: ${{ GITHUB_WORKSPACE }}/scripts/build.sh
+  image: ${{ inputs.workspace }}/dockerfiles/Dockerfile
+  entrypoint: ${{ inputs.workspace }}/scripts/build.sh
   args:
     - './'
     - ${{ inputs.output-path }}
