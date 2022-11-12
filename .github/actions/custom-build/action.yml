@@ -8,4 +8,7 @@ inputs:
 runs:
   using: 'docker'
   image: './dockerfiles/Dockerfile'
-  entrypoint: ./scripts/build.sh ./ "${{ inputs.output-path }}"
+  entrypoint: './scripts/build.sh'
+  args:
+    - './'
+    - ${{ inputs.output-path }}
