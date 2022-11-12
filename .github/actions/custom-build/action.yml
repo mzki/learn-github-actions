@@ -1,0 +1,11 @@
+name: "Go build"
+description: "Build Go binary with custom environment"
+inputs:
+  output-path:
+    description: "output binary path"
+    required: true
+    default: "main"
+runs:
+  using: 'docker'
+  image: '${{GITHUB_WORKSPACE}}/dockerfiles/Dockerfile'
+  entrypoint: '${{GITHUB_WORKSPACE}}/build.sh ${{GITHUB_WORKSPACE}} ${{ inputs.output-path }}'
