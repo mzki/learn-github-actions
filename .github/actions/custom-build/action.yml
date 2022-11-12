@@ -7,8 +7,8 @@ inputs:
     default: "main"
 runs:
   using: 'docker'
-  image: './dockerfiles/Dockerfile'
-  entrypoint: './scripts/build.sh'
+  image: ${{ GITHUB_WORKSPACE }}/dockerfiles/Dockerfile
+  entrypoint: ${{ GITHUB_WORKSPACE }}/scripts/build.sh
   args:
     - './'
     - ${{ inputs.output-path }}
