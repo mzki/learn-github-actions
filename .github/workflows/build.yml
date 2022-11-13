@@ -67,8 +67,7 @@ jobs:
           name: built-binaries
       - name: Release
         uses: softprops/action-gh-release@v1
-        # name: default to tag name
-        # tag_name: default to github.ref
-        generate_release_notes: true
-        files: artifact/**/*
+        with:
+          generate_release_notes: true
+          files: artifact/**/*
         
