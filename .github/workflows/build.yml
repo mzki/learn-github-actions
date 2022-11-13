@@ -29,8 +29,8 @@ jobs:
         uses: './.github/actions/custom-build/'
         with:
           build-target: ./cmd/
-          output-path: ${{ GITHUB_WORKSPACE }}/main
+          output-path: $GITHUB_WORKSPACE/main
 
       # Runs a set of commands using the runners
       - name: Run built binary to confirm it works
-        run: ${{ GITHUB_WORKSPACE }}/main a b c d e f g
+        run: $GITHUB_WORKSPACE/main a b c d e f g
