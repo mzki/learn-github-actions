@@ -62,12 +62,15 @@ jobs:
     needs: build
     #if: startsWith(github.ref, 'refs/tags/')
     steps:
+      - name: Prepare directory
+        run: mkdir -p artifact
       - name: Download built binaries
         uses: actions/download-artifact@v3
         with:
           name: built-binaries
+          path: artifact
       - name: Show download files
-        run: echo `ls -R .`
+        run: echo `ls -R artifact`
       # - name: Release
       #   uses: softprops/action-gh-release@v1
       #   with:
