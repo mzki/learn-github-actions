@@ -12,7 +12,7 @@ inputs:
 runs:
   using: 'docker'
   image: ${{ inputs.workspace }}/dockerfiles/Dockerfile
-  entrypoint: ${{ inputs.workspace }}/scripts/build.sh
+  entrypoint: scripts/build.sh
   args:
     - './'
     - ${{ inputs.output-path }}
