@@ -5,10 +5,14 @@ inputs:
     description: "output binary path"
     required: true
     default: "main"
+  build-target:
+    description: "Go build target path"
+    required: true
+    default: "./"
 runs:
   using: 'docker'
   image: ../../../dockerfiles/Dockerfile
   entrypoint: scripts/build.sh
   args:
-    - './'
+    - ${{ inputs.build-target }}
     - ${{ inputs.output-path }}
