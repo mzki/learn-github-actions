@@ -34,26 +34,26 @@ jobs:
         with:
           build-target: ./cmd/
           build-platform: linux
-          output-path: $GITHUB_WORKSPACE/artifact/main
+          output-path: ./artifact/main
 
       - name: Run Custom build action for windows
         uses: './.github/actions/custom-build/'
         with:
           build-target: ./cmd/
           build-platform: windows
-          output-path: $GITHUB_WORKSPACE/artifact/main.exe
+          output-path: ./artifact/main.exe
 
       # Runs built binary (currently linux only)
       - name: Run built binary to confirm it works
-        run: $GITHUB_WORKSPACE/artifact/main a b c d e f g
+        run: ./artifact/main a b c d e f g
 
       - name: Upload built binaries
         uses: actions/upload-artifact@v3
         with:
           name: built-binaries
-          path: $GITHUB_WORKSPACE/artifact/
+          path: ./artifact/
           retention-days: 7 # for 1 week
-
+          if-no-files-found: error
 
   # Release artifacts if push tags
   release: 
