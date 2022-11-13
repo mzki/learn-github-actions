@@ -9,6 +9,10 @@ inputs:
     description: "Go build target path"
     required: true
     default: "./"
+  build-platform:
+    description: "Target build platform, linux, macos or windows"
+    required: true
+    default: linux
 runs:
   using: 'docker'
   image: ../../../dockerfiles/Dockerfile
@@ -17,3 +21,4 @@ runs:
     - scripts/build.sh # this is main script.
     - ${{ inputs.build-target }}
     - ${{ inputs.output-path }}
+    - ${{ inputs.build-platform }}
