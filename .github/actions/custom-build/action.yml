@@ -12,7 +12,8 @@ inputs:
 runs:
   using: 'docker'
   image: ../../../dockerfiles/Dockerfile
-  entrypoint: scripts/build.sh
+  entrypoint: scripts/gh-action-entrypoint.sh
   args:
+    - scripts/build.sh # this is main script.
     - ${{ inputs.build-target }}
     - ${{ inputs.output-path }}
