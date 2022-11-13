@@ -1,9 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
 set -eu
 
-$target=$1
-$output=$2
+target=$1
+output=$2
 echo $(ls .)
 echo $(pwd)
 go get -d -v ./...
